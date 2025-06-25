@@ -1,4 +1,4 @@
-hello world
+
 import json
 import os
 import argparse
