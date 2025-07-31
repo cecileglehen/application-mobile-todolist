@@ -265,8 +265,7 @@ class SSHTerminal:
                 username=self.username,
                 password=self.password,
                 timeout=15,
-                banner_timeout=30,
-                auth_timeout=30
+                banner_timeout=30
             )
             
             self.add_output("✅ Authentification réussie!\n")
