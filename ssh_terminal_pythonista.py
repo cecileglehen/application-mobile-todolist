@@ -34,7 +34,7 @@ class SSHTerminal:
         # Paramètres de connexion par défaut
         self.hostname = "raspberrypi.local"
         self.port = 22
-        self.username = "pi"
+        self.username = "tom"
         self.password = ""
         
         self.setup_ui()
@@ -53,19 +53,22 @@ class SSHTerminal:
         connection_view.background_color = '#2d2d2d'
         
         # Champs de connexion
-        ui.Label(frame=(10, 10, 80, 32), text='Host:', text_color='white', parent=connection_view)
+        ui.Label(frame=(10, 10, 80, 32), text='Host:', text_color='white', font=('Helvetica', 14), parent=connection_view)
         self.host_field = ui.TextField(frame=(100, 10, 200, 32), text=self.hostname, 
-                                      background_color='#3d3d3d', text_color='white')
+                                      background_color='#4d4d4d', text_color='white', 
+                                      placeholder='raspberrypi.local', border_width=1, border_color='#666666')
         connection_view.add_subview(self.host_field)
         
-        ui.Label(frame=(10, 50, 80, 32), text='User:', text_color='white', parent=connection_view)
+        ui.Label(frame=(10, 50, 80, 32), text='User:', text_color='white', font=('Helvetica', 14), parent=connection_view)
         self.user_field = ui.TextField(frame=(100, 50, 100, 32), text=self.username,
-                                      background_color='#3d3d3d', text_color='white')
+                                      background_color='#4d4d4d', text_color='white',
+                                      placeholder='tom', border_width=1, border_color='#666666')
         connection_view.add_subview(self.user_field)
         
-        ui.Label(frame=(210, 50, 80, 32), text='Pass:', text_color='white', parent=connection_view)
+        ui.Label(frame=(210, 50, 80, 32), text='Pass:', text_color='white', font=('Helvetica', 14), parent=connection_view)
         self.pass_field = ui.TextField(frame=(250, 50, 100, 32), secure=True,
-                                      background_color='#3d3d3d', text_color='white')
+                                      background_color='#4d4d4d', text_color='white',
+                                      placeholder='password', border_width=1, border_color='#666666')
         connection_view.add_subview(self.pass_field)
         
         # Bouton de connexion
@@ -142,7 +145,7 @@ class SSHTerminal:
     def connect_ssh(self):
         """Établir la connexion SSH"""
         self.hostname = self.host_field.text or "raspberrypi.local"
-        self.username = self.user_field.text or "pi"
+        self.username = self.user_field.text or "tom"
         self.password = self.pass_field.text
         
         if not self.password:
